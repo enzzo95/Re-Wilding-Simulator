@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LazerGun : MonoBehaviour
 {
@@ -10,10 +11,18 @@ public class LazerGun : MonoBehaviour
 
     [Header("Laser Settings")]
     public float maxDistance = 100f;
+    public float destroyTime = 5f;
+
+    [Header("UI")]
+    public Slider progressBar;
+
+    private float timer = 0f;
+    private GameObject lastHitObject = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        progressBar.gameObject.SetActive(false);
         lineRenderer.enabled = false;
     }
 
@@ -28,6 +37,7 @@ public class LazerGun : MonoBehaviour
         else
         {
             lineRenderer.enabled = false;
+            ResetLaser();
         }
     }
 
@@ -38,7 +48,6 @@ public class LazerGun : MonoBehaviour
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, shootPoint.position);
 
-        // Rayon
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -47,13 +56,48 @@ public class LazerGun : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             targetPosition = hit.point;
+
+            if (hit.collider.CompareTag("Concrete"))
+            {
+                if (hit.collider.gameObject == lastHitObject)
+                {
+                    timer += Time.deltaTime;
+                    progressBar.value = timer;
+                    progressBar.gameObject.SetActive(true);
+
+                    if (timer >= destroyTime)
+                    {
+                        Destroy(hit.collider.gameObject);
+                        ResetLaser();
+                    }
+                }
+                else
+                {
+                    lastHitObject = hit.collider.gameObject;
+                    timer = 0f;
+                    progressBar.value = 0f;
+                }
+            }
+            else
+            {
+                ResetLaser();
+            }
         }
 
         else
         {
             targetPosition = ray.origin + (ray.direction * maxDistance);
+            ResetLaser();
         }
 
+        targetPosition += Random.insideUnitSphere * 0.02f;
         lineRenderer.SetPosition(1, targetPosition);
+    }
+
+    void ResetLaser()
+    {
+        timer = 0f;
+        lastHitObject = null;
+        progressBar.gameObject.SetActive(false);
     }
 }

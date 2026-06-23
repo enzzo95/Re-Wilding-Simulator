@@ -913,7 +913,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b9ee4c867675f940a7d78ac9897cccb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1010,7 +1010,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4459864851310106426}
   shootPoint: {fileID: 7587432535613676324}
+  lineRenderer: {fileID: 2766626991259033614}
   maxDistance: 100
+  progressBar: {fileID: 0}
 --- !u!1001 &4083449321432110832
 PrefabInstance:
   m_ObjectHideFlags: 0
