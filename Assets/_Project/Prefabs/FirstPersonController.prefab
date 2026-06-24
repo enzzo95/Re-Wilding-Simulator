@@ -809,6 +809,37 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!1 &7230571750368078435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4875898789375814637}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4875898789375814637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230571750368078435}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.044, z: 0.62}
+  m_LocalScale: {x: 0.03333333, y: 0.03333333, z: 0.03333333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7694924429895841769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3752892596634452722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,7 +894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1922203563431936800, guid: da29dbb386adcc34380418d7045753df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1012,6 +1043,7 @@ MonoBehaviour:
   shootPoint: {fileID: 7587432535613676324}
   lineRenderer: {fileID: 2766626991259033614}
   maxDistance: 100
+  destroyTime: 5
   progressBar: {fileID: 0}
 --- !u!1001 &4083449321432110832
 PrefabInstance:
@@ -1027,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5936465013902138441, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5936465013902401817, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1071,8 +1103,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5936465013902401817, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4875898789375814637}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5936465013902138441, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5436766227804628836}
   m_SourcePrefab: {fileID: 100100000, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
 --- !u!4 &7694924429895841769 stripped
 Transform:
@@ -1084,6 +1122,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5936465013902138441, guid: 9f3f841b2097b2a4fafa61ada88d7788, type: 3}
   m_PrefabInstance: {fileID: 4083449321432110832}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5436766227804628836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694924429896092345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b180ea1add3eafd43aae4d5bc9a862a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 4459864851310106426}
+  shootPoint: {fileID: 4875898789375814637}
+  dirtProjectilePrefab: {fileID: 5238712881236159057, guid: a62e7fe6b9f7726408b31b044734cdeb, type: 3}
+  maxDistance: 100
+  fireRate: 0.5
+  hTarget: 1.5
 --- !u!1001 &5053693466646892174
 PrefabInstance:
   m_ObjectHideFlags: 0
