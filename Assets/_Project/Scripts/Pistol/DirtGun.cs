@@ -49,7 +49,7 @@ public class DirtGun : MonoBehaviour
             targetPoint = ray.origin + (ray.direction * maxDistance);
         }
 
-        int fragmentsCount = 4;
+        int fragmentsCount = 1;
 
         for (int i = 0; i < fragmentsCount; i++)
         {
