@@ -51,7 +51,7 @@ MonoBehaviour:
   generator: {fileID: 0}
   tileLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
 --- !u!1 &4536541945790058439
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   fpsCamera: {fileID: 5141986466682066335}
   tileLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
 --- !u!1 &8364579959632198399
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   generator: {fileID: 0}
   groundBaseLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 512
 --- !u!1 &8871657411532723812
 GameObject:
   m_ObjectHideFlags: 0
