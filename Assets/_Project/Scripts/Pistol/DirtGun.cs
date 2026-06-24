@@ -9,8 +9,12 @@ public class DirtGun : MonoBehaviour
 
     [Header("Settings")]
     public float maxDistance = 100f;
-    public float fireRate = 0.5f;
+    public float fireRate = 0.1f;
     public float hTarget = 1.5f;
+
+    [Header("Flux Dispersion (Game Feel)")]
+    public bool applySpread = true;
+    public float spreadAngle = 1.5f;
 
     private float nextFireTime = 0f;
 
@@ -20,7 +24,7 @@ public class DirtGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        if (Input.GetMouseButton(0) && Time.time >= nextFireTime)
         {
             ShootProjectile();
             nextFireTime = Time.time + fireRate;
@@ -39,18 +43,46 @@ public class DirtGun : MonoBehaviour
         {
             targetPoint = hit.point;
         }
+
         else
         {
             targetPoint = ray.origin + (ray.direction * maxDistance);
         }
 
-        GameObject projectile = Instantiate(dirtProjectilePrefab, shootPoint.position, Quaternion.identity);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        int fragmentsCount = 4;
 
-        if (rb != null)
+        for (int i = 0; i < fragmentsCount; i++)
         {
-            Vector3 velocity = CalculateBallisticVelocity(shootPoint.position, targetPoint, hTarget);
-            rb.linearVelocity = velocity;
+            Vector3 fragmentedTarget = targetPoint;
+            fragmentedTarget += new Vector3(
+                Random.Range(-spreadAngle, spreadAngle),
+                Random.Range(-spreadAngle, spreadAngle),
+                Random.Range(-spreadAngle, spreadAngle)
+            ) * (Vector3.Distance(shootPoint.position, targetPoint) * 0.08f);
+
+            Quaternion randomRotation = Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
+
+            GameObject projectile = Instantiate(dirtProjectilePrefab, shootPoint.position, randomRotation);
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                float randomMultiplier = Random.Range(0.1f, 0.25f);
+
+                Vector3 irregularScale = new Vector3(
+                    Random.Range(0.05f, 0.15f),
+                    Random.Range(0.05f, 0.15f),
+                    Random.Range(0.05f, 0.15f)
+                );
+                projectile.transform.localScale = irregularScale;
+
+                Vector3 velocity = CalculateBallisticVelocity(shootPoint.position, fragmentedTarget, hTarget);
+
+                velocity += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+                rb.linearVelocity = velocity;
+
+                rb.angularVelocity = new Vector3(Random.Range(-15f, 15f), Random.Range(-15f, 15f), Random.Range(-15f, 15f));
+            }
         }
     }
 
