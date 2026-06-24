@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3092150790482394768}
   - component: {fileID: 6944987776742421856}
   - component: {fileID: 6633867608266936221}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2830486469950758981}
   - component: {fileID: 5779630372174375506}
   - component: {fileID: 4224167580500912598}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Concrete_quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

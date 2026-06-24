@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8982934734777557778}
   - component: {fileID: 461692316139493011}
   - component: {fileID: 1243781661686930013}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Concrete_cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 1610864376931728505}
   - component: {fileID: 2165000256628912370}
   - component: {fileID: 243544198499266889}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Cubebeton
   m_TagString: Untagged
   m_Icon: {fileID: 0}

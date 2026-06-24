@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7362573941200344363}
   - component: {fileID: 8213087712072907791}
   - component: {fileID: 7923810180870071800}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Grass_cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 5853165184620588227}
   - component: {fileID: 8141063440726609104}
   - component: {fileID: 7757249088471742769}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Cubebeton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
