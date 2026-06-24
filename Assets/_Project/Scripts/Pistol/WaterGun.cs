@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaterGun : MonoBehaviour
@@ -8,7 +9,10 @@ public class WaterGun : MonoBehaviour
     public ParticleSystem waterParticles;
 
     [Header("Settings")]
-    public float maxDistance = 15f;
+    public float maxDistance = 15f; 
+    public float sprayRadius = 0.6f;
+
+    private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,7 +52,29 @@ public class WaterGun : MonoBehaviour
         {
             if (hit.collider.CompareTag("Dirt"))
             {
-                print("[DEBUG]: Dirt collide water");
+                GridGenerator generator = Object.FindFirstObjectByType<GridGenerator>();
+                if (generator == null) return;
+
+                Vector3 impactPoint = hit.point;
+                Vector3 localImpact = impactPoint - generator.transform.position;
+
+                int centerCol = Mathf.RoundToInt(localImpact.x / generator.tileSize);
+                int centerRow = Mathf.RoundToInt(localImpact.z / generator.tileSize);
+
+                int radiusInTiles = Mathf.CeilToInt(sprayRadius / generator.tileSize);
+
+                for (int x = centerCol - radiusInTiles; x <= centerCol + radiusInTiles; x++)
+                {
+                    for (int z = centerRow - radiusInTiles; z <= centerRow + radiusInTiles; z++)
+                    {
+                        float distance = Vector2.Distance(new Vector2(centerCol, centerRow), new Vector2(x, z));
+
+                        if (distance <= radiusInTiles)
+                        {
+                            generator.PlantGrass(x, z);
+                        }
+                    }
+                }
             }
         }
     }

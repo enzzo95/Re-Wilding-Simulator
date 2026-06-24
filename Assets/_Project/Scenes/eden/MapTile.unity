@@ -592,6 +592,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4895ddaa59c77141802a5c794bfc7f7, type: 3}
+--- !u!20 &706248186 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 2110213126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &750232791
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +967,30 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1463019376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3366997187065987538, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+  m_PrefabInstance: {fileID: 2110213126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463019380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463019376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754899ec536691c4b83cf6317e968bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 50
+  sprayRadius: 0.5
+  fireRate: 0.05
+  fpsCamera: {fileID: 706248186}
+  tileLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1518352542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1173,10 @@ PrefabInstance:
       propertyPath: generator
       value: 
       objectReference: {fileID: 1990950319}
+    - target: {fileID: 6701155362970054240, guid: 3ef4ebb13d7f963498a1b36988a2a59e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8871657411532723812, guid: 3ef4ebb13d7f963498a1b36988a2a59e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1643,6 +1676,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3038732624562740033, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038732624562740033, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3038732624562740033, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159737896904139904, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: destroyTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159737896904139904, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: maxDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3159737896904139904, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: progressBar
       value: 
@@ -1714,7 +1767,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3366997187065987538, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1463019380}
   m_SourcePrefab: {fileID: 100100000, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
