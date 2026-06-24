@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6440440502909881809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7472911155882505555}
+  - component: {fileID: 3821900559971076346}
+  m_Layer: 0
+  m_Name: generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7472911155882505555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440440502909881809}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3821900559971076346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440440502909881809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8959913f2d85f4da459e06db8b86e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  concreteCubePrefab: {fileID: 402567133741917413, guid: 77c3641db623a2648b6621ee822db404, type: 3}
+  concreteQuadPrefab: {fileID: 6288201789256686428, guid: a3e5767ef7c70ad44afd927dc225df66, type: 3}
+  dirtCubePrefab: {fileID: 4072349778352107491, guid: d06e3e32fc567ca41b386d1b141338fe, type: 3}
+  dirtQuadPrefab: {fileID: 7294769714853152053, guid: 29be76917a55c22408a6ddc4f6939531, type: 3}
+  grassCubePrefab: {fileID: 34765194070732348, guid: fa066273fd5cd5f45ac061ae726896b3, type: 3}
+  grassQuadPrefab: {fileID: 160913643818924716, guid: 7cabb68004f6d234388e369e1d79d762, type: 3}
+  width: 50
+  length: 50
+  tileSize: 0.06
+  tileThickness: 0.2
+  vfxConcretePrefab: {fileID: 4194505781068739807, guid: d3ec2572e9c29114e972ea8039e4722d, type: 3}
+  vfxDirtPrefab: {fileID: 8552249712118592637, guid: 56fc43fca0345e84ba14d0b605a4ceaa, type: 3}
+  vfxGrassPrefab: {fileID: 548011988403637335, guid: 4bdd1dd55e3d3d74b9a677b0fcfe419c, type: 3}
