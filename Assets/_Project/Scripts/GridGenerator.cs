@@ -214,4 +214,32 @@ public class GridGenerator : MonoBehaviour
             }
         }
     }
+
+    public float GetWildingPercentage()
+    {
+        int totalTiles = 0;
+        int grassTiles = 0;
+
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < length; j++)
+            {
+                Vector2Int pos = new Vector2Int(i, j);
+
+                if (gridPositions.TryGetValue(pos, out Tile tile))
+                {
+                    totalTiles++;
+
+                    if (tile.tileType == 2)
+                    {
+                        grassTiles++;
+                    }
+                }
+            }
+        }
+
+        if (totalTiles == 0) return 0f;
+
+        return ((float)grassTiles / totalTiles) * 100f;
+    }
 }
